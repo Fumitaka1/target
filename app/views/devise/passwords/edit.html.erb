@@ -1,0 +1,23 @@
+<div class="wrapper top">
+  <div class="devise-form-outer land">
+    <%= form_with model: @user, url: edit_user_password_path, local: true, class: 'basic_form' do |f| %>
+      <h2>パスワード変更</h2>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <%= f.label :password, "新しいパスワード" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+
+      <%= f.label :password_confirmation, "パスワード確認" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+      <%= f.submit "パスワード変更", class: "button" %>
+    <% end %>
+    <div class="devise-form-menu">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

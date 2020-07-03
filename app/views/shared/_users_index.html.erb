@@ -1,0 +1,13 @@
+<div class="items_index">
+  <% if users.blank? %>
+    <div class="items-nil">
+      <h2>まだユーザーがいません</h2>
+    </div>
+  <% else %>
+    <% users.each do |user| %>
+      <div class="index_item">
+        <%= render 'shared/user_info', user: user %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

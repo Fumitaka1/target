@@ -1,0 +1,20 @@
+<div class="wrapper flex">
+  <div class="home-outer">
+    <div class="post">
+      <div class="post_info">
+        <%= link_to image_tag("icon.png", alt: "user icon", class: "user-icon"), "" %>
+        <p class="user_name"><%= @comment.user.name %></p>
+        <p><%= @comment.updated_at.to_s(:datetime_jp) %>更新</p>
+      </div>
+      <div class="post_contents">
+        <p><%= @comment.contents %></p>
+      </div>
+      <% if current_user == @comment.user %>
+        <div class="post_menu">
+          <li><%= link_to "コメントを削除", "", method: :delete, class: "button" %></li>
+          <li><%= link_to "コメントを編集", edit_post_path(@comment), class: "button" %></li>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

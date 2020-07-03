@@ -1,0 +1,39 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.landing-belt{
+  background-color: $orange;
+}
+
+.home-outer{
+  order: 2;
+  width: 55%;
+  margin: 0 auto;
+}
+
+
+%sidemenu{
+  width: 27.5%;
+  border: solid 1px $red;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  border-radius: 5px;
+  li{
+    width: 100%;
+    border-bottom: solid 1px $red;
+    a{
+      display: block;
+    }
+  }
+}
+
+.l-side{
+  @extend %sidemenu;
+  margin-right: 20px;
+  order: 1;
+}
+
+.r-side{
+  @extend %sidemenu;
+  margin-left: 20px;
+  order: 3;
+}

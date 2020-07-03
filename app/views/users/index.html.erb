@@ -1,0 +1,42 @@
+<div class="wrapper top">
+  <% if current_user_is_admin? %>
+    <div class="controll_table land">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>アイコン</th>
+          <th>ユーザーネーム</th>
+          <th>メールアドレス</th>
+          <th>登録日</th>
+          <th>投稿数</th>
+          <th>フォロワー</th>
+          <th>フォロー</th>
+        </tr>
+        <% @users.each do |user| %>
+        <% next if user.admin %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= image_tag 'default_icon', class: 'index_user_icon' %></td>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.to_s(:datetime_jp) %></td>
+          <td><%= user.posts.count %></td>
+          <td><%= user.followers.count %></td>
+          <td><%= user.following.count %></td>
+          <td><%= link_to '削除', user,
+            data: { confirm: '本当に削除しますか？' },
+            method: :delete,
+            class: 'button',
+            remote: true %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+  <% else %>
+    <div class="home-outer">
+      <%= will_paginate @users, previous_label: '<', next_label: '>', inner_window: 1 %>
+      <%= render 'shared/users_index', users: @users %>
+      <%= will_paginate @users, previous_label: '<', next_label: '>', inner_window: 1 %>
+    </div>
+  <% end %>
+</div>

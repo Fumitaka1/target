@@ -1,0 +1,7 @@
+<div class="wrapper flex top">
+  <div class="home-outer">
+    <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
+    <%= render 'shared/posts_index', posts: @posts  %>
+    <%= will_paginate @posts, previous_label: '<', next_label: '>', inner_window: 1 %>
+  </div>
+</div>

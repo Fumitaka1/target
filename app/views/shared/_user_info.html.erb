@@ -1,0 +1,14 @@
+<div class="item_content">
+  <div class="post_user_icon">
+    <%= link_to(users_path(user)) do %>
+      <% if user.icon.blank? %>
+        <%= image_tag 'default_icon', class: 'user_icon' %>
+      <% else %>
+        <img src=<%= user.icon %> alt="user icon", class="user_icon" >
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <h2 class="user_name"><%= link_to(user.name, user_path(user)) %></h2>
+  </div>
+</div>

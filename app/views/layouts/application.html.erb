@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Routine</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+      <%= render 'shared/header' %>
+      <div class="flash_message_container">
+        <%= render 'shared/notice_message', notice: notice if notice.present? %>
+        <%= render 'shared/alert_message', alert: alert if alert.present? %>
+        <%= render 'shared/admin_message' if user_signed_in? && current_user.admin %>
+      </div>
+      <div class="main">
+      <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+  </body>
+</html>

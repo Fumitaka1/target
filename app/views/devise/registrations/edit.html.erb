@@ -1,0 +1,44 @@
+<div class="wrapper top">
+  <div class="devise-form-outer land">
+    <%= form_with model: @user, url: user_registration_path, local: true, class: 'basic_form' do |f| %>
+    <h2>アカウント変更</h2>
+    <%= render 'devise/shared/error_messages', resource: resource %>
+
+    <%= f.label :name, 'ユーザーネーム' %>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'name' %>
+
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email' %>
+
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password, autocomplete: 'new-password' %>
+    <% if @minimum_password_length %>
+      <em><%= @minimum_password_length %> 文字以上</em>
+    <% end %>
+
+    <%= f.label :password_confirmation, 'パスワード確認' %>
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password' %>
+
+    <%= f.label :current_password, '現在のパスワード' %>
+    <%= f.password_field :current_password, autocomplete: 'current-password' %>
+
+    <label>
+      <%= f.check_box :remove_icon %>
+      ユーザーアイコンを初期化
+    </label>
+
+    <%= f.label :icon, 'ユーザーアイコン' %>
+    <%= f.file_field :icon %>
+
+    <%= f.submit '変更', class: 'button' %>
+
+    <% end %>
+    <div class="devise-form-menu">
+      <%= link_to '戻る', :back, class: 'button' %>
+      <%= link_to 'アカウント削除', registration_path(resource_name),
+      data: { confirm: '本当に削除しますか？' },
+      method: :delete,
+      class: 'button' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="wrapper flex top">
+  <div class="home-outer">
+
+    <div class="post land">
+
+      <%= render 'shared/post_info', post: @post %>
+      <div class="post_contents">
+        <p><%= @post.content %></p>
+        <% unless @post.image.file.nil? %>
+        <div class="post_image">
+          <img src=<%= @post.image %> alt="posts image">
+        </div>
+        <% end %>
+      </div>
+      <%= render 'shared/post_menu', post: @post %>
+    </div>
+
+    <div class="comments land">
+      <%= render partial: 'shared/comment_show', collection: @comments, as: :comment %>
+      <%= will_paginate @comments, previous_label: '<', next_label: '>', inner_window: 1 %>
+      <% if user_signed_in? %>
+        <div class="comment-form-outer">
+          <%= render 'shared/comment_form', comment: @comment %>
+        </div>
+      <% else %>
+        <div class="not_loged_in_comment">
+          <%= link_to 'ログインしてコメントを投稿する', new_user_session_path, class: 'button-border' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

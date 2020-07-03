@@ -1,0 +1,25 @@
+<header>
+  <div class="wrapper page-header">
+    <h1><%= link_to image_tag("logo.png", alt: "routine", class: "header-logo"), root_path %></h1>
+    <div class="search-box">
+      <%= form_with url: '/posts', method: :get do |f| %>
+        <%= f.text_field :q %>
+        <%= f.submit '検索', class: 'button' %>
+      <% end %>
+    </div>
+    <nav>
+      <ul class="header-nav flex">
+        <li><%= link_to "投稿一覧", posts_path %></li>
+        <li><%= link_to "投稿", new_post_path %></li>
+        <li><%= link_to "ユーザー一覧", users_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "#{current_user.name}", current_user, class: "button" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path, class: "button" %></li>
+          <li><%= link_to "ログイン", new_user_session_path, class: "button-border" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

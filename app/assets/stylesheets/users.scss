@@ -1,0 +1,27 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.user_side{
+  width: 45%;
+  padding-right: 20px;
+}
+
+.users_home{
+  border: solid 1px $red;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  ul{
+    display: flex;
+  }
+}
+
+.user_prof_icon{
+  width: 300px;
+}
+
+.user_name a{
+  color: black;
+}

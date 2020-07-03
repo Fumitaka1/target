@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require ress.scss
+ *= require_self
+
+ *= require_tree .
+ */
+$red: #e82055;
+$orange: #ff7b24;
+
+html{
+  word-wrap: break-word;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+li{
+  list-style: none;
+}
+
+img{
+  max-width: 100vh;
+}
+
+input{
+  background-color: white;
+}
+
+// header------------------------------
+header{
+  border-bottom: solid 1px $red;
+  background-color: $orange;
+}
+
+.header-logo{
+  height: 30px;
+}
+
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav{
+  vertical-align: middle;
+  li{
+    padding-left: 20px;
+  }
+}
+
+// main------------------------------
+.main{
+  min-height: 85vh;
+  background-color: whitesmoke;
+}
+
+.land{
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  background-color: white;
+  border-radius: 5px;
+}
+
+.wrapper{
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top{
+  padding: 40px 0;
+}
+
+// footer------------------------------
+footer{
+  border-top: solid 1px $red;
+  background-color: $orange;
+}
+
+.page-footer{
+  padding: 20px 10px;
+}
+
+.footer-logo{
+  height: 40px;
+}

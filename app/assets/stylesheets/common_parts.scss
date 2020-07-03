@@ -1,0 +1,115 @@
+$red: #e82055;
+$orange: #ff7b24;
+
+.user_icon{
+  height: 80px;
+  border-radius: 5px;
+}
+
+.user_data{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-block{
+  text-align: center;
+}
+
+.button{
+  border-radius: 8px;
+  background: $red;
+  color: white;
+  padding: 3px 8px;
+}
+
+.button-border{
+  @extend .button;
+  border: solid $red 1px;
+  background: rgba(0,0,0,0);
+  color: $red;
+}
+
+.post_form_inner{
+  width: 100%;
+  display: flex;
+}
+
+.form-outer{
+  padding: 15px
+}
+
+.basic_form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  h2{
+    text-align: center;
+  }
+  label{
+    padding: 0 0 10px 10px;
+  }
+  input, textarea{
+    box-shadow: inset 2px 2px 2px #ccc;
+    margin-bottom: 20px;
+    border: solid #000 1px;
+    border-radius: 5px;
+  }.button{
+    margin: 0;
+    margin: 0 auto;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+#error_explanation{
+  border: solid 1px red;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: #fdd;
+  color: red;
+  font-size: 15px;
+}
+
+.flash_message_container{
+  background-color: whitesmoke;
+}
+
+%flash_message{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert_message{
+  @extend %flash_message;
+  border: solid 1px lightpink;
+  background-color: pink;
+  color: darkred;
+}
+
+.notice_message{
+  @extend %flash_message;
+  border: solid 1px springgreen;
+  background-color: palegreen;
+  color: darkgreen;
+}
+
+.items_index{
+  border: solid 1px $red;
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.4);
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: white;
+  .items_nil{
+    h2{ text-align: center; }
+  }
+  .index_item{
+    border-radius: 5px;
+    border: solid 1px $red;
+    margin: 10px 0;
+    padding: 15px;
+    .item_content{
+      display: flex;
+    }
+  }
+}

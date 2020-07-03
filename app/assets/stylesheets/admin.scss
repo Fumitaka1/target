@@ -1,0 +1,19 @@
+.controll_table{
+  padding: 15px;
+  width: 1100px;
+  .index_user_icon{
+    height: 40px;
+  }
+  th{
+    padding: 10px 5px;
+    text-align: center;
+  }
+  td{
+    padding: 5px;
+    text-align: center;
+  }
+}
+
+table tr:nth-child(odd){
+  background-color: #eee
+}

@@ -1,0 +1,23 @@
+<div class="comment">
+  <div class="comments_info">
+    <div class="commented_user_icon">
+      <%= link_to(users_path(comment.user)) do %>
+        <% if comment.user.icon.blank? %>
+          <%= image_tag 'default_icon', class: 'comments_user_icon' %>
+        <% else %>
+          <img src=<%= comment.user.icon %> alt="user icon", class="comments_user_icon" >
+        <% end %>
+      <% end %>
+    </div>
+    <div class="comment_meta">
+      <div class="comment_inner">
+        <div class="posts_meta">
+          <p class="posted_user_name"><%= link_to(comment.user.name, user_path(comment.user)) %></p>
+          <p class="updated_time"><%= comment.updated_at.to_s(:datetime_jp) %>更新</p>
+        </div>
+        <%= render 'shared/comment_menu', comment: comment %>
+      </div>
+    </div>
+  </div>
+  <p class="comment_content"><%= comment.content %></p>
+</div>

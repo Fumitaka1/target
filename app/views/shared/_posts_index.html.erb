@@ -1,0 +1,13 @@
+<div class="posts">
+  <% if posts.blank? %>
+    <div class="posts-nil">
+      <h2>まだ投稿がありません</h2>
+    </div>
+  <% else %>
+    <% posts.each do |post| %>
+      <div class="post">
+        <%= render 'shared/post_info', post: post %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
