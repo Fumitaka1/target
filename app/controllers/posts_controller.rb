@@ -53,7 +53,15 @@ class PostsController < ApplicationController
   end
 
   def set_posts_search_result
-    search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
+    # sqlインジェクション脆弱性なし（クリエ生成にプレースホルダを使用している）
+    # search_result = Post.where("title LIKE ?", "%#{params[:q]}%")
+
+    # sqlインジェクション脆弱性なし（単一引用符とバックラッシュをサニタイズしている）
+    # sanitized_q = params[:q].gsub(/\'|\\/,'\'' => '\\\'', '\\' => '\\\\') if params[:q]
+    # search_result = Post.where("title LIKE '%#{sanitized_q}%'")
+
+    # sqlインジェクション脆弱性あり（プレースホルダを使用していない、文字列のサニタイズを行っていない）
+    search_result = Post.where("title LIKE '%#{params[:q]}%'")
     @posts = search_result.paginate(page: params[:page], per_page: 20)
   end
 end
