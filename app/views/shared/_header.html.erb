@@ -2,7 +2,7 @@
   <div class="wrapper page-header">
     <h1><%= link_to image_tag("logo.png", alt: "routine", class: "header-logo"), root_path %></h1>
     <div class="search-box">
-      <%= form_with url: '/posts', method: :get do |f| %>
+      <%= form_with url: '/posts', method: :get, local: true do |f| %>
         <%= f.text_field :q %>
         <%= f.submit '検索', class: 'button' %>
       <% end %>
