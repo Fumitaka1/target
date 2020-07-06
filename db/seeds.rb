@@ -13,15 +13,15 @@ require 'faker'
 Faker::Config.locale = :ja
 Faker::Internet.email # => "ransom_blanda@auer.name"
 
-User.create!(name: 'admin', email: 'admin@rotine.com', password: 'admins-password', admin: true)
-100.times do |no|
-  User.create!(name: "#{Faker::Name.name}@#{Faker::Job.position} #{no}",
+# User.create!(name: 'admin', email: 'admin@rotine.com', password: 'admins-password', admin: true)
+10.times do |no|
+  User.create!(name: "#{Faker::Name.name}",
                email: Faker::Internet.email,
                password: 'a' * 8)
 end
 
-100.times do |no|
-  Post.create!(title: Faker::Lorem.sentence, content: Faker::Lorem.sentence(word_count: 10), user_id: Random.rand(100)+1)
+20.times do |no|
+  Post.create!(title: Faker::Lorem.sentence, content: Faker::Lorem.sentence(word_count: 10), user_id: Random.rand(10)+1)
 end
 
 users = User.all

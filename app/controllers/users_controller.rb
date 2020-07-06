@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.paginate(page: params[:page], per_page: 20)
+    # sqlインジェクション脆弱性あり（プレースホルダを使用していない、文字列のサニタイズを行っていない）
+    # @users = User.all.paginate(page: params[:page], per_page: 20)
+    # @users = User.where("name LIKE '%#{params[:q]}%'")
+    @users = User.where("name LIKE ?","%#{params[:q]}%")
   end
 
   def show
