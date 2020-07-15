@@ -1,7 +1,7 @@
 <div class="wrapper flex top">
   <div class="home-outer">
     <div class="post land">
-      <%= render 'shared/post_info', post: @post %>
+      <%= render 'posts/post_info', post: @post %>
       <div class="post_contents">
         <p><%= @post.content %></p>
         <% unless @post.image.blank? %>
@@ -10,7 +10,7 @@
         </div>
         <% end %>
       </div>
-      <%= render 'shared/post_menu', post: @post %>
+      <%= render 'posts/post_menu', post: @post %>
     </div>
     <div class="comments land">
       <% @comments.each do |comment| %>
@@ -32,7 +32,7 @@
                     <p class="posted_user_name"><%= link_to(@comment.user.name,users_path(@comment.user)) %></p>
                     <p class="updated_time"><%= @comment.updated_at.to_s(:datetime_jp) %>更新</p>
                   </div>
-                  <%= render 'shared/comment_menu', comment: @comment %>
+                  <%= render 'comments/comment_menu', comment: @comment %>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
             <% end %>
           </div>
         <% else %>
-          <%= render 'shared/comment_show', comment: comment %>
+          <%= render 'comments/comment_show', comment: comment %>
         <% end %>
       <% end %>
       <%= will_paginate @comments, previous_label: '<', next_label: '>', inner_window: 1 %>

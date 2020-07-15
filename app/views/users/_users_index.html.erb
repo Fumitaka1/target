@@ -1,12 +1,13 @@
 <div class="items_index">
+  <%= render 'users/search_result', query: @query unless @query.nil? %>
   <% if users.blank? %>
     <div class="items-nil">
-      <h2>まだユーザーがいません</h2>
+      <h2>ユーザーがいません</h2>
     </div>
   <% else %>
     <% users.each do |user| %>
       <div class="index_item">
-        <%= render 'shared/user_info', user: user %>
+        <%= render 'users/user_info', user: user %>
       </div>
     <% end %>
   <% end %>
