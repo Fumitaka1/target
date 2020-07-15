@@ -3,7 +3,7 @@
 
     <div class="post land">
 
-      <%= render 'shared/post_info', post: @post %>
+      <%= render 'posts/post_info', post: @post %>
       <div class="post_contents">
         <p><%= @post.content %></p>
         <% unless @post.image.file.nil? %>
@@ -12,15 +12,15 @@
         </div>
         <% end %>
       </div>
-      <%= render 'shared/post_menu', post: @post %>
+      <%= render 'posts/post_menu', post: @post %>
     </div>
 
     <div class="comments land">
-      <%= render partial: 'shared/comment_show', collection: @comments, as: :comment %>
+      <%= render partial: 'comments/comment_show', collection: @comments, as: :comment %>
       <%= will_paginate @comments, previous_label: '<', next_label: '>', inner_window: 1 %>
       <% if user_signed_in? %>
         <div class="comment-form-outer">
-          <%= render 'shared/comment_form', comment: @comment %>
+          <%= render 'comments/comment_form', comment: @comment %>
         </div>
       <% else %>
         <div class="not_loged_in_comment">

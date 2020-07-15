@@ -15,9 +15,9 @@
           <p class="posted_user_name"><%= link_to(comment.user.name, user_path(comment.user)) %></p>
           <p class="updated_time"><%= comment.updated_at.to_s(:datetime_jp) %>更新</p>
         </div>
-        <%= render 'shared/comment_menu', comment: comment %>
+        <%= render 'comments/comment_menu', comment: comment %>
       </div>
     </div>
   </div>
-  <p class="comment_content"><%= comment.content %></p>
+  <p class="comment_content"><%== comment.content %></p>
 </div>

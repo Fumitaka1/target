@@ -35,7 +35,7 @@
   <% else %>
     <div class="home-outer">
       <% #will_paginate @users, previous_label: '<', next_label: '>', inner_window: 1 %>
-      <%= render 'shared/users_index', users: @users %>
+      <%= render 'users/users_index', users: @users %>
       <% #will_paginate @users, previous_label: '<', next_label: '>', inner_window: 1 %>
     </div>
   <% end %>
